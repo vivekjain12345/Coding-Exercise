@@ -1,0 +1,28 @@
+<div class="container">
+<form>
+  <div class="row">
+    <mat-form-field>
+    <div class="input-group" matAutocompleteOrigin #origin="matAutocompleteOrigin">
+      <input #searchInput matInput placeholder="Search Company" required [matAutocomplete]="auto" [formControl]="companyCtrl">
+    </div>
+    </mat-form-field>
+     <button type="button"class="btn btn-primary" (click) ="onSubmit()">
+            Submit
+       </button>
+           <mat-error *ngIf="!companyCtrl.hasError('required') && showCompanyError && !serviceErrorMsg">
+      No Company Exists! Select from options.
+    </mat-error>
+       <mat-error style="margin-top:0px;" *ngIf="serviceErrorMsg">
+     {{serviceErrorMsg}}
+    </mat-error>
+
+	</div>
+
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+  <mat-option *ngFor="let company of filteredResults" [value]="company" >{{company.companyName}}</mat-option>
+</mat-autocomplete>
+
+
+
+</form>
+</div>

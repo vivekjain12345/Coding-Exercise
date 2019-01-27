@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+    	 <div class="well col-xs-12 col-sm-8">
+                    <h2>Company Info</h2>
+                    <p><strong>Company Name: </strong> {{selectedCompany.companyName}} </p>
+                    <p *ngIf="selectedCompany?.companyIds?.length > 0"><strong>Company Ids: </strong>{{selectedCompany.companyIds.join(',')}}</p>
+                <button type="button"class="btn btn-primary" (click) ="back()">
+                  Back To Search
+                </button>
+        </div>
+	</div>
+</div>
+
